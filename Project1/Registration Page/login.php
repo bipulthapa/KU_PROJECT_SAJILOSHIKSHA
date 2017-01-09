@@ -1,6 +1,11 @@
 <?php 
     session_start();
     require_once("connect.php");
+
+    if(isset($_SESSION['username'])) {
+		header('Location: welcome.php');
+	}
+
     $errormessage="";
     if (isset($_POST) && !empty($_POST)){
         $username = mysqli_real_escape_string($con,$_POST['username']);
